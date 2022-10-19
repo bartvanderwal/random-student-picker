@@ -1,0 +1,271 @@
+﻿@media print
+{
+  .ui-header{position:absolute}
+  .ui-collapsible-heading a{background-color:lightgray!important}
+  div.ui-collapsible-content-collapsed{display:block}  
+  .ui-disabled, .ui-state-disabled, button[disabled], .ui-select .ui-btn.ui-state-disabled{opacity:.7}
+	input[disabled]{
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none; 
+		opacity:.9
+	}
+}
+@font-face
+{
+  font-family:Avenir Next LT W01 Demi;
+  src:url("avenir/aad99a1f-7917-4dd6-bbb5-b07cedbff64f.woff2") format("woff2"),url(91b50bbb-9aa1-4d54-9159-ec6f19d14a7c.woff) format("woff")	  
+}
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("avenir/4998b3c8-f377-458d-9143-48ca2f5643bf.eot?#iefix");
+  src: url("avenir/4998b3c8-f377-458d-9143-48ca2f5643bf.eot?#iefix") format("eot"), url("avenir/f93a7ba1-8ac9-422b-85ab-09c9138324de.woff2") format("woff2"), url("avenir/98622b92-1cca-4c15-b19d-62b9c110cdb1.woff") format("woff"), url("avenir/c20684a6-2733-4568-9708-8c4a7dfb4a5c.ttf") format("truetype"); 
+    font-weight: 300;
+  font-style: normal; 
+  }
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("avenir/6c9b8b7e-5e1a-4813-9a08-bef545cc4a12.eot?#iefix");
+  src: url("avenir/6c9b8b7e-5e1a-4813-9a08-bef545cc4a12.eot?#iefix") format("eot"), url("avenir/df8a8fcc-2f61-4eeb-82c6-a317c4ab1c89.woff2") format("woff2"), url("avenir/4a25dc4d-e5c9-4fd1-8f90-c3558ecc4b93.woff") format("woff"), url("avenir/e9842e10-9c7b-481c-a354-9dcd65ea4ef0.ttf") format("truetype"); 
+    font-weight: 300;
+  font-style: italic; 
+  }
+
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("avenir/e9167238-3b3f-4813-a04a-a384394eed42.eot?#iefix");
+  src: url("avenir/e9167238-3b3f-4813-a04a-a384394eed42.eot?#iefix") format("eot"), url("avenir/2cd55546-ec00-4af9-aeca-4a3cd186da53.woff2") format("woff2"), url("avenir/1e9892c0-6927-4412-9874-1b82801ba47a.woff") format("woff"), url("avenir/46cf1067-688d-4aab-b0f7-bd942af6efd8.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("avenir/d1fddef1-d940-4904-8f6c-17e809462301.eot?#iefix");
+  src: url("avenir/d1fddef1-d940-4904-8f6c-17e809462301.eot?#iefix") format("eot"), url("avenir/7377dbe6-f11a-4a05-b33c-bc8ce1f60f84.woff2") format("woff2"), url("avenir/92b66dbd-4201-4ac2-a605-4d4ffc8705cc.woff") format("woff"), url("avenir/18839597-afa8-4f0b-9abb-4a30262d0da8.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic; }
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("avenir/1a7c9181-cd24-4943-a9d9-d033189524e0.eot?#iefix");
+  src: url("avenir/1a7c9181-cd24-4943-a9d9-d033189524e0.eot?#iefix") format("eot"), url("avenir/627fbb5a-3bae-4cd9-b617-2f923e29d55e.woff2") format("woff2"), url("avenir/f26faddb-86cc-4477-a253-1e1287684336.woff") format("woff"), url("avenir/63a74598-733c-4d0c-bd91-b01bffcd6e69.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("avenir/77a9cdce-ea6a-4f94-95df-e6a54555545e.eot?#iefix");
+  src: url("avenir/77a9cdce-ea6a-4f94-95df-e6a54555545e.eot?#iefix") format("eot"), url("avenir/3f380a53-50ea-4a62-95c5-d5d8dba03ab8.woff2") format("woff2"), url("avenir/8344e877-560d-44d4-82eb-9822766676f9.woff") format("woff"), url("avenir/b28b01d9-78c5-46c6-a30d-9a62c8f407c5.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic; }
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("avenir/12d643f2-3899-49d5-a85b-ff430f5fad15.eot?#iefix");
+  src: url("avenir/12d643f2-3899-49d5-a85b-ff430f5fad15.eot?#iefix") format("eot"), url("avenir/aad99a1f-7917-4dd6-bbb5-b07cedbff64f.woff2") format("woff2"), url("avenir/91b50bbb-9aa1-4d54-9159-ec6f19d14a7c.woff") format("woff"), url("avenir/a0f4c2f9-8a42-4786-ad00-fce42b57b148.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("avenir/770d9a7e-8842-4376-9319-8f2c8b8e880d.eot?#iefix");
+  src: url("avenir/770d9a7e-8842-4376-9319-8f2c8b8e880d.eot?#iefix") format("eot"), url("avenir/687932cb-145b-4690-a21d-ed1243db9e36.woff2") format("woff2"), url("avenir/bc350df4-3100-4ce1-84ce-4a5363dbccfa.woff") format("woff"), url("avenir/bc13ae80-cd05-42b4-b2a9-c123259cb166.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic; }
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("avenir/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot?#iefix");
+  src: url("avenir/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot?#iefix") format("eot"), url("avenir/14c73713-e4df-4dba-933b-057feeac8dd1.woff2") format("woff2"), url("avenir/b8e906a1-f5e8-4bf1-8e80-82c646ca4d5f.woff") format("woff"), url("avenir/890bd988-5306-43ff-bd4b-922bc5ebdeb4.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("avenir/ac2d4349-4327-448f-9887-083a6a227a52.eot?#iefix");
+  src: url("avenir/ac2d4349-4327-448f-9887-083a6a227a52.eot?#iefix") format("eot"), url("avenir/eaafcb26-9296-4a57-83e4-4243abc03db7.woff2") format("woff2"), url("avenir/25e83bf5-47e3-4da7-98b1-755efffb0089.woff") format("woff"), url("avenir/4112ec87-6ded-438b-83cf-aaff98f7e987.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic; }
+
+/*
+Avenir Next condensed
+- 500 normal
+- 500 italic
+- 600 normal
+- 600 italic
+- 700 normal
+- 700 italic
+- 900 normal
+- 900 italic
+ */
+@font-face {
+  font-family: "Avenir Next Condensed";
+  src: url("avenir/a67ef414-c5d7-468b-b47e-d184186ab1af.eot?#iefix");
+  src: url("avenir/a67ef414-c5d7-468b-b47e-d184186ab1af.eot?#iefix") format("eot"), url("avenir/0af7c703-9511-413c-b2b0-0028ee78523f.woff2") format("woff2"), url("avenir/31e6842e-9840-4bbe-8a92-47e14d532a18.woff") format("woff"), url("avenir/e681b22e-866c-4ee6-ab86-10a2ed50dbb3.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "Avenir Next Condensed";
+  src: url("avenir/f737d53f-f6ed-4f15-8fe7-925fb68a8851.eot?#iefix");
+  src: url("avenir/f737d53f-f6ed-4f15-8fe7-925fb68a8851.eot?#iefix") format("eot"), url("avenir/7fb4cb78-601f-4bb2-995a-442252089573.woff2") format("woff2"), url("avenir/19db35b6-b3e8-400b-ae62-a3d37cc9fa56.woff") format("woff"), url("avenir/61860563-e9eb-40bd-844e-48e96af9d063.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "Avenir Next Condensed";
+  src: url("avenir/10236419-1766-4da0-9a4c-83b4fffea025.eot?#iefix");
+  src: url("avenir/10236419-1766-4da0-9a4c-83b4fffea025.eot?#iefix") format("eot"), url("avenir/c1ecdeb5-a61a-4207-ae23-0441885ba32d.woff2") format("woff2"), url("avenir/4a75c3b0-f2ef-402c-b54b-ed543933e9c5.woff") format("woff"), url("avenir/bb18d7e3-286e-4825-bf91-7fbeaf607d05.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Avenir Next Condensed";
+  src: url("avenir/8e7f81d1-94dd-47e6-94ce-9c278d5d1ecc.eot?#iefix");
+  src: url("avenir/8e7f81d1-94dd-47e6-94ce-9c278d5d1ecc.eot?#iefix") format("eot"), url("avenir/f31d487c-aab1-4ce0-8fb8-4bdfa26dd539.woff2") format("woff2"), url("avenir/6b0725b6-26e5-4bcf-8174-4d4b4d4217b9.woff") format("woff"), url("avenir/435f931d-7af1-4f3a-a084-3d7aed6cd568.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic; }
+
+@font-face {
+  font-family: "AvenirNextLTW01-MediumC_721314";
+  src: url("avenir/c705e79c-88bf-49cf-b054-d2cd2b700cb0.eot?#iefix");
+  src: url("avenir/c705e79c-88bf-49cf-b054-d2cd2b700cb0.eot?#iefix") format("eot"), url("avenir/5d02d040-4b68-4c3d-bd11-ef4664ff33cf.woff2") format("woff2"), url("avenir/d1710add-9d03-4bda-b16e-c46b21ccaa64.woff") format("woff"), url("avenir/398bc882-7cc8-4fce-a487-abe01122ff34.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "Avenir Next Condensed";
+  src: url("avenir/fe4d96a8-3161-4f0c-ac51-ed6a5df15918.eot?#iefix");
+  src: url("avenir/fe4d96a8-3161-4f0c-ac51-ed6a5df15918.eot?#iefix") format("eot"), url("avenir/d268cd4d-987c-468a-a9bb-685df57a3892.woff2") format("woff2"), url("avenir/add96dac-4679-4981-9390-74fd5a5bf61f.woff") format("woff"), url("avenir/60f1dfd0-eea9-448c-84a0-e4e8d5ba7516.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal; }
+
+@font-face {
+  src: url("avenir/59849657-f79e-4c9c-807e-cf3bdaf6cd8c.eot?#iefix");
+  src: url("avenir/59849657-f79e-4c9c-807e-cf3bdaf6cd8c.eot?#iefix") format("eot"), url("avenir/e56d2786-8357-40f9-910f-27c0b9247d4b.woff2") format("woff2"), url("avenir/0053d44b-70fb-4049-bb99-4e049090191f.woff") format("woff"), url("avenir/e317c755-2435-4d10-8756-67a0179564a5.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic; }
+
+@font-face {
+  font-family: "Avenir Next Condensed";
+  src: url("avenir/07690b8a-c348-4c53-8de3-59f7cfef9ee8.eot?#iefix");
+  src: url("avenir/07690b8a-c348-4c53-8de3-59f7cfef9ee8.eot?#iefix") format("eot"), url("avenir/9f6106aa-36e0-4cfb-8cda-c3354eab2461.woff2") format("woff2"), url("avenir/ff039068-be8b-415c-b1a9-24eedee1c3ab.woff") format("woff"), url("avenir/cdd2cecb-bd0e-41e5-9ecd-ef60f52a35be.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Avenir Next Condensed";
+  src: url("avenir/34b322c2-c1c5-40af-b8e1-fb7574cf68e4.eot?#iefix");
+  src: url("avenir/34b322c2-c1c5-40af-b8e1-fb7574cf68e4.eot?#iefix") format("eot"), url("avenir/741a7814-dce9-4eba-a17d-7a235d91ee46.woff2") format("woff2"), url("avenir/8a911a4d-274f-4996-8857-e2c1d6b42d80.woff") format("woff"), url("avenir/9b626f1d-8523-44d7-b47e-37ac358725b0.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic; }
+
+@font-face {
+  font-family: "Avenir Next Condensed";
+  src: url("avenir/f65301e6-bde6-475a-9ec4-e717c9071ec0.eot?#iefix");
+  src: url("avenir/f65301e6-bde6-475a-9ec4-e717c9071ec0.eot?#iefix") format("eot"), url("avenir/8f88bcd5-8815-42e7-8ad4-500a79ee3896.woff2") format("woff2"), url("avenir/8ed534f4-eeda-4572-abe3-72d0fdca7b2e.woff") format("woff"), url("avenir/76586a32-27c7-46d6-9fd2-1be776727919.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Avenir Next Condensed";
+  src: url("avenir/574f016f-df72-4bf4-8574-4a04160ad2df.eot?#iefix");
+  src: url("avenir/574f016f-df72-4bf4-8574-4a04160ad2df.eot?#iefix") format("eot"), url("avenir/026d994c-7246-43bf-892d-a3bd8e20d9fb.woff2") format("woff2"), url("avenir/0416d7a9-ca05-4880-9820-100b1014b8e8.woff") format("woff"), url("avenir/7bd1a09c-45cb-4bf8-bff2-015e69d58286.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic; }
+
+
+@font-face {
+  font-family: "AvenirNextW01-CnLight";
+  src: url("avenir/7402f25d-4872-4227-90cf-66f66bc51b3d.eot?#iefix");
+  src: url("avenir/7402f25d-4872-4227-90cf-66f66bc51b3d.eot?#iefix") format("eot"), url("avenir/cc0dbd66-bf64-4956-a5b8-66defe0680d4.woff2") format("woff2"), url("avenir/1c842023-250d-448b-91ac-52441c066cb2.woff") format("woff"), url("avenir/096bed6d-1686-43c6-894f-04c0f3bbf2f1.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "AvenirNextW01-CnLightIt";
+  src: url("avenir/a9f5d435-1343-4b1f-bd2f-15749f15e3fb.eot?#iefix");
+  src: url("avenir/a9f5d435-1343-4b1f-bd2f-15749f15e3fb.eot?#iefix") format("eot"), url("avenir/536c7bb0-e31a-4d71-9e7c-3e46483a3465.woff2") format("woff2"), url("avenir/fa081579-43f1-4d2c-b044-bf2591b9f90d.woff") format("woff"), url("avenir/7a3678f7-0048-425a-821a-a51cfc18c7bb.ttf") format("truetype"); }
+
+
+
+
+body {font-family:"Avenir Next","Myriad Set Pro","Helvetica Neue",Arial,"Lucida Grande",sans-serif}
+.ui-li-count, .ui-field-contain>label, .ui-field-contain .ui-controlgroup-label, .ui-field-contain>.ui-rangeslider>label  {font-family:"Avenir Next Condensed"}
+
+
+.red{color:Red}.stripe{color:white;background:url('images/stripe2.png')}
+.icone85237 a:after{background-color:#e85237}
+.icon2fa694 a:after{background-color:#2FA694}
+.iconfea734 a:after{background-color:#fea734}
+.icon163e67 a:after{background-color:#163E67}
+.icon5994bf a:after{background-color:#5994bf}
+.icongreen a:after{background-color:green}
+.iconblack a:after{background-color:black}
+.iconblue a:after{background-color:blue}
+.icon4e9c52 a:after{background-color:#4e9c52}
+.icon5d74c3 a:after{background-color:#5d74c3}
+.icon9c4e4e a:after{background-color:#9c4e4e}
+.icon3c8cc2 a:after{background-color:#3c8cc2}
+.iconbf4646 a:after{background-color:#BF4646}
+.icon5e87b0 a:after{background-color:#5e87b0;opacity:.6}
+.icon305072 a:after{background-color:#305072}
+.iconcrimson a:after{background-color:crimson}
+.icone50056 a:after{background-color:#e50056}
+
+.COLOR0 a:after{background-color:#f8696b}
+.COLOR1 a:after{background-color:#f98570}
+.COLOR2 a:after{background-color:#fba276}
+.COLOR3 a:after{background-color:#fcbf7b}
+.COLOR4 a:after{background-color:#fedc81}
+.COLOR5 a:after{background-color:#eee683}
+.COLOR6 a:after{background-color:#ccdd82}
+.COLOR7 a:after{background-color:#a9d27f}
+.COLOR8 a:after{background-color:#86c97e}
+.COLOR9 a:after{background-color:#63be7b}
+.COLOR10 a:after{background-color:#ffbc40}
+.COLOR11 a:after{background-color:#ffce73}
+.COLOR12 a:after{background-color:#bfa430}
+.COLOR13 a:after{background-color:#bf6d30}
+.GREY0 a:after{background-color:#f2f2f2}
+.GREY1 a:after{background-color:#d6d6d6}
+.GREY2 a:after{background-color:#b9b9b9}
+.GREY3 a:after{background-color:#9d9d9d}
+.GREY4 a:after{background-color:gray}
+.GREY5 a:after{background-color:#636363}
+.GREY6 a:after{background-color:#474747}
+.GREY7 a:after{background-color:#2a2a2a}
+.GREY8 a:after{background-color:#0d0d0d}
+.GREY9 a:after{background-color:#000}
+.BLUE a:after{background-color:#66d2f5}
+.normalfont li a {font-weight:400!important}
+
+div.ui-collapsible-content div.ui-field-contain div.ui-slider {max-width:75em}
+.lm{text-align:center;margin:2px 0}
+
+#ProfielKeuze h4, #ProfielKeuzeAlt h4{color:#41739c!important}
+#ProfielKeuze .ui-radio label span.ui-btn-text,#ProfielKeuzeAlt .ui-radio label span.ui-btn-text {font-size:15px!important}
+.filledRatingStar{float:left;
+     font-size:0;width:13px;height:12px;margin-top:-4px;margin-bottom:-4px;padding:0;display:block;background-color:Transparent;background-repeat:no-repeat;
+     background-image:url(../images/FilledStar.png)}
+.emptyRatingStar{float:left;
+     font-size:0;width:13px;height:12px;margin-top:-4px;margin-bottom:-4px;padding:0;display:block;background-color:Transparent;background-repeat:no-repeat;
+     background-image:url(../images/EmptyStar.png)}
+/* validation styles */
+label.error{color: red;font-size: 16px;font-weight:normal;line-height:1.4;margin-top:0.5em;width:100%;float:none}
+@media screen and (orientation:portrait){label.error{margin-left:0;display:inline-block}}
+@media screen and (orientation:landscape){label.error{display:inline-block;margin-left:22%}}
+#frmLogin em {color:red;font-weight: bold;padding-right:.25em}
+h4,h5,h6 {padding:0!important}
+div[data-role="footer"] h5{padding:0;font-size:10px!important} 
+.ui-collapsible-content>div{margin-bottom:10px;padding-bottom:2px;border-bottom:dashed 1px #e2e2e2}/*Enquete vragen binnen categorie uit elkaar houden*/
+.ui-collapsible-content>div:last-of-type{margin-bottom:0;padding-bottom:0;border-bottom-width:0} /*laatste: geen extra ruimte inpikken*/
+.ui-collapsible-content>div>legend{width:100%;font-family:"Avenir Next Condensed";font-size:1.04em}
+input[value="Goed"]+label.ui-btn{min-width:80px}
+.leftIcon:after{margin-left:-5px}
+.leftIcon{vertical-align:middle;margin:1px 3px 1px 0;padding:2px 4px 2px 21px;font-weight:400}
+
+.rubric {padding-bottom:14px!important;}
+.rubric .ui-controlgroup-controls {display:flex;align-items:stretch;}
+.rubric .ui-controlgroup-controls .ui-radio {flex-grow:1;flex-basis:0;max-width:22em}
+.rubric .ui-controlgroup-controls .ui-radio label {height:99%;padding-bottom:.1em;padding-right:.2em}
+.rubric .ui-radio label.ui-btn div {font-family:"Avenir Next Condensed";text-shadow:none;white-space:pre-line;font-size:.9em}
+/* .rubric .ui-controlgroup-controls .ui-radio label div {display:inline-block} */
+
+.navhl a{background-color:#fffbce!important}
+
