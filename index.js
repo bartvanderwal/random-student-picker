@@ -1,5 +1,5 @@
 /**
- * Log alleen op localhost, of als URL parameter ?debug=true aanwezig
+ * Log alleen berichten op localhost, of als URL parameter ?debug=true aanwezig
 */
 const currentUrl = window.location.href
 const queryString = window.location.search;
@@ -84,7 +84,7 @@ pickButton.addEventListener('click', function(event) {
     }
     
     // Kies nieuwe (en herhaal als toevallig zelfde uitkomt)
-    while (randomStudentIndex==vorigeRandomStudentIndex) {
+    while (randomStudentIndex==vorigeRandomStudentIndex && aanwezigeStudenten.length>1) {
         randomStudentIndex = getRandomInt(aanwezigeStudenten.length)
     }
     const randomStudent = aanwezigeStudenten[randomStudentIndex]

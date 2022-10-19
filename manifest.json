@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Student picker Chrome extension - HAN AIM iSAS",
+    "name": "Student picker - HAN AIM iSAS in Chrome",
     "description": "Chrome extensie voor gebruik in HAN AIM's iSAS webapplicatie voor random selecteren van een student in de klas aanwezigheidslijst.",
     "version": "0.1",
     "homepage_url": "https://github.com/bartvanderwal/random-student-picker",
@@ -8,7 +8,8 @@
       "service_worker": "scripts/background.js"
     },
     "icons": {
-      "64": "plaatjes/icon-64.png"
+      "64": "plaatjes/icon-64.png",
+      "128": "plaatjes/icon-128.png"
     },
     "permissions": [
       "activeTab"
@@ -36,7 +37,8 @@
         "16": "plaatjes/icon-16.png",
         "32": "plaatjes/icon-32.png",
         "48": "plaatjes/icon-48.png",
-        "64": "plaatjes/favicon.png"
+        "64": "plaatjes/favicon.png",
+        "128": "plaatjes/icon-128.png"
       }
     }
   }
