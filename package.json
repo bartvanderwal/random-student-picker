@@ -4,6 +4,7 @@
   "description": "Idee is om een browser extensie te maken om in de iSAS aanwezigheidsregistratie te kunnen hergebruiken als 'random student picker' analoog aan de bestaand [Processing applicatie random-student-picker' van Sander Leer]() (Leer, 2019).",
   "main": "index.js",
   "scripts": {
+    "start": "npx http-server -c-1 .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
