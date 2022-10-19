@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Student picker Chrome extension - HAN AIM iSAS",
-    "description": "Chrome extensie voor gebruik in HAN AIM's iSAS webapplicatie voor random selecteren van een student in de aanwezigheidslijst",
+    "description": "Chrome extensie voor gebruik in HAN AIM's iSAS webapplicatie voor random selecteren van een student in de klas aanwezigheidslijst.",
     "version": "0.1",
     "homepage_url": "https://github.com/bartvanderwal/random-student-picker",
     "background": {
