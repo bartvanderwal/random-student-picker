@@ -82,7 +82,11 @@ pickButton.addEventListener('click', function(event) {
     if (randomStudentIndex!=-1) {
         vorigeRandomStudentIndex = randomStudentIndex
     }
-    randomStudentIndex = getRandomInt(aanwezigeStudenten.length)
+    
+    // Kies nieuwe (en herhaal als toevallig zelfde uitkomt)
+    while (randomStudentIndex==vorigeRandomStudentIndex) {
+        randomStudentIndex = getRandomInt(aanwezigeStudenten.length)
+    }
     const randomStudent = aanwezigeStudenten[randomStudentIndex]
     let vorigeRandomStudent
     if (vorigeRandomStudentIndex!=-1) {
