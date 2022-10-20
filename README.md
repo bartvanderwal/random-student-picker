@@ -25,6 +25,26 @@ Bron: [Chrome docs on extensions](https://developer.chrome.com/docs/extensions/m
 
 *Figuur 4*: (Actual) Video met voorbeeld van gebruik (geanonimiseerde gegevens ivm AVG)
 
+## Hoe te installeren
+
+T.z.t. is deze plugin wellicht te vinden in Chrome Web store. Tot die tijd kun je handmatig installeren via downloaden van de code base hier uit GitHub, en deze als 'unpacke Je installeert dit via de Chrome extension toolbar. Je moet hier de Developer. Zie bijgevoegde screenshots en stappen. Deze zijn gemaakt onder macOS op een Mac, maar het gaat vergelijkbaar op Windows.
+
+<img src="plaatjes/chrome-extension-install.png" alt="" align="right" width="300">
+
+*Figuur 5*: Markeren van 'gepickte' student
+
+<img src="plaatjes/chrome-extension-select-manifest-folder.png" alt="Structuur van HTML in iSAS" align="right" width="300">
+
+*Figuur 6*: (Design) Markeren van 'gepickte' student
+
+0. Download code uit github via downloaden .zip uit GitHub en uitpakken of gebruik de git cli: `git clone`
+1. Open de Browser Extensions via ... menu in Chrome of surf naar `chrome://extensions`
+2. Zorg dat je de Developer Modus aan hebt staan
+3. Druk op de `Load unpacked` knop
+4. Navigeer in de file picker naar de folder die je bij stap 0 hebt gedowload (e.g. de folder waar het bestand `manifest.json` in staat) en selecteer deze
+5. Je kunt nu nog het icoontje van de extensie pinnen
+6. Je bent klaar , surf nu naar het Aanwezigheidsscherm in iSAS en je hebt hier extra opties
+
 ## User stories & acceptatiecriteria (BDD stijl)
 
 Onderstaand user stories en acceptatie criteria in [BDD](https://cucumber.io/docs/gherkin/reference/) stijl.
