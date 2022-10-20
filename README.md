@@ -1,10 +1,12 @@
 # AIM iSAS Student picker extension
 
-Idee is om een browser extensie te maken om in de iSAS aanwezigheidsregistratie te kunnen hergebruiken als 'random student picker' analoog aan de bestaand [Processing applicatie random-student-picker' van Sander Leer](https://github.com/HANICA/select-random-student) (Leer, 2019).
+Een Chrome browser extensie om in het aanwezigheidsregistratie scherm van de iSAS webapplicatie die we bij HAN AIM gebruiken optie te hebben voor 'random student picker' analoog aan de bestaande [Processing applicatie random-student-picker' van Sander Leer](https://github.com/HANICA/select-random-student) (Leer, 2019).
+
+Hieronder kort de algoritmiek en wat plaatjes en een video van design en implementatie.
 
 Bron: [Chrome docs on extensions](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/)
 
-## Pseudo code
+## Pseudo code/algoritmiek
 
 - Zet studenten in een JS array met naam en volgnr [ {"volgnr": 1, "naam": "Jan Jansen", "aanwezig": true}, { ... } ]
 - Haal afwezig studenten uit array (kopie)
@@ -16,13 +18,24 @@ Bron: [Chrome docs on extensions](https://developer.chrome.com/docs/extensions/m
 - Zorg dat deze gemarkeerd is, bv. groen; zie figuur 2
 - Eventueel focus zetten op dit item (met `window.scrollTo()` functie; zie voorbeeldcode in [deze SO vraag/antwoord](https://stackoverflow.com/questions/17722497/scroll-smoothly-to-specific-element-on-page#answer-39494245))
 
+## Screenshots & Video
+
 <img src="plaatjes/html-structuur-classes.png" alt="Structuur van HTML in iSAS" align="right">
 
-*Figuur 1*: De aanwezigheidslijst in iSAS en HTML structuur en class
+*Figuur 1*: (Design) De aanwezigheidslijst in iSAS en HTML structuur en class
 
 <img src="plaatjes/selected.png" alt="Structuur van HTML in iSAS" align="right">
 
-*Figuur 2*: Markeren van 'gepickte' student
+*Figuur 2*: (Design) Markeren van 'gepickte' student
+
+<img src="plaatjes/screenshot-random-student-picker.png" alt="Structuur van HTML in iSAS" align="right">
+
+*Figuur 3*: (Actual) Chrome Extensie en toegevoegde UI met pick knop en filter vinkje
+
+<video src="plaatjes/demo-video-random-student-isas.mp4" controls="controls" style="max-width: 730px;">
+</video>
+
+*Figuur 4*: (Actual) Video met voorbeeld van gebruik (geanonimiseerde gegevens ivm AVG)
 
 ## User stories & acceptatiecriteria (BDD stijl)
 
