@@ -1,38 +1,32 @@
-# AIM iSAS Student picker extension
+# AIM iSAS Student picker extension v0.1
+
+<img src="plaatjes/screenshot-random-student-picker.png" alt="Structuur van HTML in iSAS" align="right" width="400">
 
 Een Chrome browser extensie om in het aanwezigheidsregistratie scherm van de iSAS webapplicatie die we bij HAN AIM gebruiken optie te hebben voor 'random student picker' analoog aan de bestaande [Processing applicatie random-student-picker' van Sander Leer](https://github.com/HANICA/select-random-student) (Leer, 2019).
 
-Hieronder kort de algoritmiek en wat plaatjes en een video van design en implementatie.
+Hieronder wat plaatjes en een demo video van de UI en kort de algoritmiek en wat user stories voor toekomstige uitbreiding en stabilisatie.
+
+Wellicht komt de extensie tzt in de Chrome Web store, maar voor voorlopig kun je deze handmatig zelf installeren via uploaden van root directory met de `manifest.json` en overige (JavaScript) code erin.
 
 Bron: [Chrome docs on extensions](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/)
 
-## Screenshots & Video
+https://user-images.githubusercontent.com/3029472/196881124-ab0b21ac-1a4b-4637-8966-7dada42cb553.mp4
 
-<img src="plaatjes/screenshot-random-student-picker.png" alt="Structuur van HTML in iSAS" align="right">
-
-*Figuur 1*: (Actual) Chrome Extensie en toegevoegde UI met pick knop en filter vinkje
+*Figuur 1*: Video met voorbeeld van gebruik (uiteraard fictieve studentnamen i.v.m. AVG 😉)
 
 <img src="plaatjes/html-structuur-classes.png" alt="Structuur van HTML in iSAS" align="right">
 
-*Figuur 2*: (Design) De aanwezigheidslijst in iSAS en HTML structuur en class
+*Figuur 3*: (Design) De aanwezigheidslijst in iSAS en HTML structuur en class
 
-<img src="plaatjes/selected.png" alt="Structuur van HTML in iSAS" align="right">
-
-*Figuur 3*: (Design) Markeren van 'gepickte' student
-
-<video src="plaatjes/demo-video-random-student-isas.mp4" controls="controls" style="max-width: 730px;">
-</video>
-
-*Figuur 4*: (Actual) Video met voorbeeld van gebruik (geanonimiseerde gegevens ivm AVG)
 
 ## User stories & acceptatiecriteria (BDD stijl)
 
-Onderstaand user stories en acceptatie criteria in [BDD](https://cucumber.io/docs/gherkin/reference/) stijl.
+Onderstaand de user stories en acceptatie criteria in [BDD](https://cucumber.io/docs/gherkin/reference/) stijl.
 
-Feature: Browser based interface in iSAS als Chrome extensie
+### Feature: Browser based interface in iSAS als Chrome extensie
 Als docent wil ik de al in iSAS ingevulde aanwezigheidslijst kunnen gebruiken in de browser in plaats van aparte applicatie te gebruiken zodat ik niet apart iets hoef op te starten (maar wel een Chrome extensie moet installeren, want 'voor niets gaat de zon op' ;)).
 
-Feature: Als docent wil ik in een klas random een aanwezige student kunnen laten kiezen uit de groep om een vraag te beantwoorden, zodat niet telkens dezelfde studenten aan de beurt zijn en de objectiviteit gewaarborgd blijft
+### Feature: Als docent wil ik in een klas random een aanwezige student kunnen laten kiezen uit de groep om een vraag te beantwoorden, zodat niet telkens dezelfde studenten aan de beurt zijn en de objectiviteit gewaarborgd blijft
 
 Scenario: Student kiezen
 Gegeven een lijst van aanwezige studenten van een klas
