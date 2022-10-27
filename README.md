@@ -4,7 +4,7 @@
 
 Een Chrome browser extensie voor docenten van HAN ICT, om in het aanwezigheidsregistratie scherm van de iSAS webapplicatie die we bij HAN AIM gebruiken de optie toe te voegen een 'random student te picken'. Dit is analoog aan de bestaande [Processing applicatie random-student-picker' van Sander Leer](https://github.com/HANICA/select-random-student) (Leer, 2019). Zorgt voor meer objectiviteit. Door aan te sluiten bij bestaande iSAS hoef je als docent niet handmatig een tekst bestand te vullen voor elke klas/elk blok.
 
-Hieronder wat plaatjes en een demo video van de UI. Voor geinteresseerden komt de extensie tzt in de Chrome Web store, maar voor voorlopig kun je deze handmatig zelf installeren via uploaden van de (JavaScript) code uit deze repo via de Chrome extensie toolbar (in Developer mode; zie stappenplan over installatie in sectie hieronder).
+Hieronder wat plaatjes en een demo video van de UI. Voor geinteresseerden komt de extensie wellicht tzt in de Chrome Web store, maar voor voorlopig kun je deze handmatig zelf installeren via uploaden van de (JavaScript) code uit deze repo via de Chrome extensie toolbar (in Developer mode; zie stappenplan over installatie in sectie hieronder).
 
 Daaronder een roadmap en hoe je zelf wensen kunt doorgeven. Tot slot typische IT zaken als:
 
@@ -23,7 +23,7 @@ https://user-images.githubusercontent.com/3029472/196881124-ab0b21ac-1a4b-4637-8
 
 ## Hoe te installeren
 
-Te zijnertijd kun je deze plugin wellicht direct vinden in de Chrome Web store. Tot die tijd kun je hem handmatig installeren via downloaden van de code base hier uit GitHub, en deze als 'unpacke Je installeert dit via de Chrome extension toolbar. Je moet hier de Developer. Zie bijgevoegde screenshots en stappen. Deze zijn gemaakt onder macOS op een Mac, maar het gaat vergelijkbaar op Windows.
+Te zijnertijd kun je deze plugin wellicht direct vinden in de Chrome Web store. Tot die tijd kun je hem handmatig installeren via downloaden van de codebase hier uit GitHub, en deze via de 'Load unpacked' optie installeren via de Chrome extension toolbar. Je moet hier de 'Developer mode' voor aanzetten. Zie bijgevoegde screenshots en stappen. Deze zijn gemaakt onder macOS op een Mac, maar het gaat vergelijkbaar op Windows.
 
 <img src="plaatjes/chrome-extension-install.png" alt="" align="right" width="300">
 
