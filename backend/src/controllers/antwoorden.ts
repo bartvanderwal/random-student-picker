@@ -12,7 +12,7 @@ import { Antwoord } from "../models/antwoord.ts";
 // Bron: https://deno.land/x/sqlite@v3.5.0
 
 function queryAntwoordenDB(query: string, values?: Array<string>) {
-    const antwoordenDb = new DB("antwoorden");
+    const antwoordenDb = new DB("antwoordenDB");
 
     antwoordenDb.execute(`
         CREATE TABLE IF NOT EXISTS antwoorden (
@@ -70,7 +70,6 @@ export const markeerAntwoord = async({request, response}:{request: Request; resp
 export const deleteAntwoorden = async({request, response}:{request: Request; response: Response}) => {
     const body = request.body();
     const { wachtwoord } = await body.value;
-    console.log('DELETE antwoorden')
 
     // Bron: Uitlezen omgevingsvariabele als extra security: https://examples.deno.land/environment-variables
     const adminPassword = Deno.env.get("ADMINPASSWORD")

@@ -1,5 +1,5 @@
 import { Request, Response } from "https://deno.land/x/oak@v11.1.0/mod.ts";
-import {ObjectId} from "https://deno.land/x/mongo@v0.30.0/mod.ts";
+import { ObjectId } from "https://deno.land/x/mongo@v0.30.0/mod.ts";
 
 import db from "../database/connectDB.ts";
 import { TaskSchema } from "../schema/task.ts";

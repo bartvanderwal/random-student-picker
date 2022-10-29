@@ -1,0 +1,10 @@
+{
+  "name": "quizztime",
+  "version": "1.0.0",
+  "description": "Frontend of the Quizztime",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bart van der Wal"
+}

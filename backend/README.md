@@ -1,6 +1,6 @@
-# Backend
+# Digitaal Wisbordje Backend+Front-end
 
-Dit is de backend voor de quiz functionaliteit in de Random student picker van HAN AIM ICT.
+Dit is de applicatie met backend en front-end voor 'quiz achtige' functionaliteit in de Random student picker van HAN AIM ICT.
 
 Deze uitbreiding van 'digitaal wisbordje' sluit beter aan bij concept 'formatief handelen' dan enkel (random) student aanwijzen. Dit is een variant van een padlet gebruiken.
 
@@ -24,11 +24,15 @@ Eventuele functionaliteit om antwoorden als goed of fout te markeren komt later,
 
 ## Achtergrond
 
-Deze backend is geschreven in Deno. De nieuwere variant van NodeJS De initiele code was gebaseerd op een voorbeeld [REST API using JWT for authentication on loginradius.com]. De bron beschrijft hoe Deno te installeren op Windows, ik heb dit zelf initieel op macOS gedaan met brew volgens de [Deno homepage](https://deno.land/manual@v1.26.2/getting_started/installation). Maar in dit project gebruiken we ook een opzet met Docker.
+Deze backend werkt met Oak, de applicatieserver van Deno; de nieuwere variant van NodeJS: sneller en veiliger. De initiele code was gebaseerd op een voorbeeld [REST API using JWT for authentication on loginradius.com]. De bron beschrijft hoe Deno te installeren op Windows, ik heb dit zelf initieel op macOS gedaan met brew volgens de [Deno homepage](https://deno.land/manual@v1.26.2/getting_started/installation). Maar in dit project gebruiken we ook een opzet met Docker.
 
 Voor de REST API applicatie gebruiken we simpelweg met de standaard [Deno image op Docker Hub](https://hub.docker.com/r/denoland/deno), die ook handleiding heeft. Andere handleiding met ook `Dockerfile`'s staat op in de [GitHub repo van 'Deno_docker'](https://hub.docker.com/r/denoland/deno).
 
 De MongoDB database runnen we ook in een [container](https://www.mongodb.com/compatibility/docker) gebruiken we later evt. voor opslaan van vakken en lessen hierin. De vragen en antwoorden slaan we echter niet persistent op vanwege het privacy aspect; en omdat dit functioneel ook helemaal niet nodig is.
+
+## Front-end als static content in `public` folder
+
+Er is een SPA front end om vragen te beheren m.b.v. Oak's static content ([bron](https://www.youtube.com/watch?v=sFqihYDpoLc)).
 
 ## How to run
 
@@ -36,7 +40,7 @@ Start de mongodb database server en dan de deno backend.
 
 ```bash
 docker run --name mongodb -d -p 27017:27017 mongo
-deno run --allow-net --allow-read --allow-write --allow-env app.ts
+deno run --allow-net --allow-read='antwoordenDB' --allow-write='antwoordenDB' --allow-env=ADMINPASSWORD server.ts
 ```
 
 De `--allow-net` is nodig voor toegang tot netwerk om als HTTP server te kunnen dienen.
@@ -51,12 +55,11 @@ Voor verwijderen van de in memory antwoorden via DELETE endpoint op `/api/antwoo
 export $ADMINPASSWORD=admin
 ```
 
-
 ## TODO
 
 De volgende zaken moeten of kunnen nog opgepakt worden:
 
-- Opleveren backeend op een server voor echt gebruik
+- Opleveren back end op een server voor echt gebruik (Docker aanpak, bv. op aimsites.nl via Argo ICT of zelf hosten VPS digital ocean)
 - Inputs van controllers wat beter typeren, zo mogelijk (schijnt nogal veel boilerplate te geven als ik [dit](https://stackoverflow.com/questions/73021318/how-to-strongly-type-the-oak-context-state-object-in-deno) lees.
 - Inputs evt. ook valideren met bv. [Joi](https://joi.dev/api/?v=17.6.1) library om [noSql injection](https://blog.sqreen.com/prevent-nosql-injections-mongodb-node-js/) te voorkomen.
 

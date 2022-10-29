@@ -3,7 +3,7 @@ import { authorized } from "../middlewares/isAuthorized.ts";
 
 import { signup, signin } from "../controllers/users.ts";
 import { postTask, getTasks, getTask, updateTask, deleteTask} from "../controllers/tasks.ts";
-import { postVraag, getVragen} from "../controllers/vragen.ts";
+import { postVraag, getVragen, deleteVraag } from "../controllers/vragen.ts";
 import { postAntwoord, getAntwoordenVoorVraag, deleteAntwoorden} from "../controllers/antwoorden.ts";
 
 
@@ -23,6 +23,7 @@ router.post("/api/tasks", authorized, postTask)
 // Vraag endpoints.
 router.post("/api/vragen", postVraag)
       .get("/api/vragen", getVragen)
+      .delete("/api/vragen/:vraagId", deleteVraag)
 
 // Vraag endpoints.
 router.get("/api/antwoorden", getAntwoordenVoorVraag)

@@ -9,7 +9,7 @@
             "name": "Launch Program",
             "type": "pwa-node",
             "env": { "ADMINPASSWORD": "admin" },
-            "program": "${workspaceFolder}/app.ts",
+            "program": "${workspaceFolder}/server.ts",
             "cwd": "${workspaceFolder}",
             "runtimeExecutable": "/usr/local/bin/deno",
             "runtimeArgs": [

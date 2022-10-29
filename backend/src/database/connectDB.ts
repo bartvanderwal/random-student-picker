@@ -9,7 +9,7 @@ try {
     await client.connect(dbString);
 } catch (error) {
     console.log('Database connection error: ', error)
-    throw new DatabaseNotAvailableError()
+    throw DatabaseNotAvailableError()
 }
 const db = client.database("deno_auth");
 export default db;
