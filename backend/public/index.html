@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizz Time</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <h1>Quizz Time</h1>
+    <form action="api/vragen" method="post" id="vraag-form">
+        <label for="vraagTekst">Vraag</label>
+        <input type="text" id="vraagTekst" name="vraagTekst" required>
+        <input type="submit" value="Voeg toe">
+    </form>
+    <h2 id="vragenKop">Vragen</h2>
+    <ul id="vragen">
+    </ul>
+    <h2>Antwoorden</h2>
+    <ul id="antwoorden">
+    </ul>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
