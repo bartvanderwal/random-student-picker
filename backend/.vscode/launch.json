@@ -7,19 +7,18 @@
         {
             "request": "launch",
             "name": "Launch Program",
-            "type": "pwa-node",
+            "type": "node",
             "env": { "ADMINPASSWORD": "admin" },
             "program": "${workspaceFolder}/server.ts",
             "cwd": "${workspaceFolder}",
             "runtimeExecutable": "/usr/local/bin/deno",
             "runtimeArgs": [
                 "run",
-                "--unstable",
                 "--inspect",
                 "--allow-net",
-                "--allow-read",
-                "--allow-write",
-                "--allow-env"
+                "--allow-read", // ='antwoordenDB'
+                "--allow-write", // ='antwoordenDB'
+                "--allow-env" // =ADMINPASSWORD
             ],
             "attachSimplePort": 9229
         }

@@ -6,20 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizz Time</title>
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/solid.min.css">
 </head>
 <body>
-    <h1>Quizz Time</h1>
-    <form action="api/vragen" method="post" id="vraag-form">
-        <label for="vraagTekst">Vraag</label>
-        <input type="text" id="vraagTekst" name="vraagTekst" required>
-        <input type="submit" value="Voeg toe">
-    </form>
-    <h2 id="vragenKop">Vragen</h2>
-    <ul id="vragen">
-    </ul>
-    <h2>Antwoorden</h2>
-    <ul id="antwoorden">
-    </ul>
+    <header>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+        <h1>Quizz Time</h1>
+    </header>
+    <main>
+        <article>
+            <form action="api/vragen" method="post" id="vraag-form">
+                <label for="vraagTekst">Vraag</label>
+                <input type="text" id="vraagTekst" name="vraagTekst" required pattern=".+\?" title="De vraag moet eindigen met een vraagteken!">
+                <input type="submit" value="Voeg toe">
+            </form>
+            <br>
+            <form action="/api/vragen" method="delete">
+                <button id="deleteVragen"><i class="fa fa-trash" aria-hidden="true"></i> Verwijder alle vragen</button>
+                <label for="admin-password">Admin ww</label>
+                <input type="password" autocomplete="current-password" id="admin-password" name="admin-password" length="8">
+            </form>
+            <form action="api/vragen" id="delete-vraag-form" method="delete">
+                <button id="deleteVraag"><i class="fa fa-trash" aria-hidden="true"></i> Verwijder geselecteerde vraag</button>
+            </form>
+        </article>
+        <article>
+            <h2 id="vragenKop">Vragen</h2>
+            <ul id="vragen">
+            </ul>
+        </article>
+        <article>
+            <h2 id="antwoordenKop">Antwoorden</h2>
+            <p id="antwoordenLoading" class="loading">Selecteer eerst een vraag om daarvan hier de antwoorden te tonen...</p>
+            <ul id="antwoorden">
+            </ul>
+            <form action="api/antwoorden" method="post" id="antwoord-form">
+                <label for="antwoordTekst">Antwoord</label>
+                <input type="text" id="antwoordTekst" name="antwoordTekst" required>
+                <input type="hidden" id="gebruikerId" name="gebruikerId" value="1">
+                <input type="submit" value="Voeg toe">
+            </form>
+        </article>
+    </main>
+    <footer>&copy; 2022 - Bart van der Wal</footer>
     <script type="module" src="app.js"></script>
 </body>
 </html>

@@ -2,7 +2,8 @@ import { Request, Response } from "https://deno.land/x/oak@v11.1.0/mod.ts";
 import { ObjectId } from "https://deno.land/x/mongo@v0.30.0/mod.ts";
 
 import db from "../database/connectDB.ts";
-import { VraagSchema } from "../schema/vraag.ts";
+import { VraagSchema } from "../schema/VraagSchema.ts";
+import { Vraag } from "../../shared/models/Vraag.d.ts";
 
 const vragen = db.collection<VraagSchema>("vragen");
 
@@ -31,9 +32,9 @@ export const postVraag = async({request, response}:{request: Request; response: 
 
 export const getVragen = async ({response}: { response: Response }) => {
     const alleVragen = await vragen.find({}).toArray();
-
+    const result: Array<Vraag> = alleVragen.map(v => ({ id: v._id.toString(), vraagTekst: v.vraagTekst, lesId: v.les}))
     response.status = 200;
-    response.body = { vragen: alleVragen};
+    response.body = { vragen: result };
 };
 
 export const deleteVraag = async ({

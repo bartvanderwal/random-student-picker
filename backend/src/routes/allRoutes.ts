@@ -1,5 +1,6 @@
 import { Router } from "https://deno.land/x/oak@v11.1.0/mod.ts";
-import { authorized } from "../middlewares/isAuthorized.ts";
+import { authorized } from "../middlewares/Authorized.ts";
+import { admin } from "../middlewares/Admin.ts"
 
 import { signup, signin } from "../controllers/users.ts";
 import { postTask, getTasks, getTask, updateTask, deleteTask} from "../controllers/tasks.ts";
@@ -26,10 +27,8 @@ router.post("/api/vragen", postVraag)
       .delete("/api/vragen/:vraagId", deleteVraag)
 
 // Vraag endpoints.
-router.get("/api/antwoorden", getAntwoordenVoorVraag)
-      .delete("/api/antwoorden", deleteAntwoorden)
+router.get("/api/antwoorden/:vraagId", getAntwoordenVoorVraag)
+      .delete("/api/antwoorden", admin, deleteAntwoorden)
       .post("/api/antwoorden", postAntwoord)
-
-console.log('URL routes loaded.')
 
 export default router;

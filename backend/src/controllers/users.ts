@@ -3,7 +3,7 @@ import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.1/mod.ts";
 import { create } from "https://deno.land/x/djwt@v2.4/mod.ts";
 
 import db from "../database/connectDB.ts";
-import { UserSchema } from "../schema/user.ts";
+import { UserSchema } from "../schema/UserSchema.ts";
 import { key } from "../utils/apiKey.ts";
 
 const Users = db.collection<UserSchema>("users");

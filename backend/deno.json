@@ -2,7 +2,6 @@
     "deno.enable": true,
     "deno.unstable": true,
     "compilerOptions": {
-        "target": "esnext",
         "lib": ["dom", "dom.iterable", "dom.asynciterable", "deno.ns"]
     }
 }

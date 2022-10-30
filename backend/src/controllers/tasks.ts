@@ -2,7 +2,7 @@ import { Request, Response } from "https://deno.land/x/oak@v11.1.0/mod.ts";
 import { ObjectId } from "https://deno.land/x/mongo@v0.30.0/mod.ts";
 
 import db from "../database/connectDB.ts";
-import { TaskSchema } from "../schema/task.ts";
+import { TaskSchema } from "../schema/taskSchema.ts";
 
 const tasks = db.collection<TaskSchema>("tasks");
 
@@ -51,7 +51,7 @@ export const updateTask = async ({
     response: Response;
 }) => {
     const taskId = params.taskId;
-    const {name, isCompleted} = await request.body().value;
+    const { name, isCompleted } = await request.body().value;
     const task = await tasks.updateOne({_id: new ObjectId(taskId)},
     {$set:{name: name, isCompleted: isCompleted}});
 

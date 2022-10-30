@@ -47,13 +47,25 @@ De `--allow-net` is nodig voor toegang tot netwerk om als HTTP server te kunnen 
 De `--allow-read` en `--allow-write` permissie zijn nodig voor het lezen respectievelijk schrijven van de 'in memory' SQLite database op de hard disk.
 De `--allow-env` is nodig voor het uitlezen van de omgevingsvariabelen uit ww voor 'secure' instellen 'geheim' wachtwoord voor endpoint wissen antwoorden e.d..
 
-Voor debuggen kun je de `--inspect` optie voor de `deno run`.
+Voor enablen van debuggen kun je de `--inspect` optie voor de `deno run` toevoegen. Bijvoorbeeld in [VS Code kun je dan breakpoints zetten](https://medium.com/deno-the-complete-reference/run-and-debug-deno-applications-in-vscode-b6e3bff217f). En voor automatisch herstarten bij wijzigingen kun je de` --watch` flag toevoegen voor [watcher mode](https://medium.com/deno-the-complete-reference/denos-built-in-watcher-1d91cb976349).
+
+De front-end staat om de `public` folder. Bij ontwikkelen kun je typescript compiler runnen, in watch mode
+
+```bash
+cd public
+tsc -w
+```
 
 Voor verwijderen van de in memory antwoorden via DELETE endpoint op `/api/antwoorden/` moet je de omgevingsvariabele `ADMINPASSWORD` op de server op een gewenste geheime waarde, die je dan in body van DELETE request moet zetten als extra beveiliging tegen hacken.
 
 ```bash
 export $ADMINPASSWORD=admin
 ```
+
+## Contribute
+
+We raden Visual Studio code aan als editor, met de [Deno extensie](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno) (zie docs](https://deno.land/manual@v1.25.4/vscode_deno)).
+Dit project bevat ook een vs code `settings.json` en `lauch.json` voor het linten respectievelijk runnen/debuggen van dit project. Deze bestanden staan in folder `.vscode/`) en deze is dus bewust NIET in de `.gitignore` gezet ;).
 
 ## TODO
 
@@ -62,6 +74,7 @@ De volgende zaken moeten of kunnen nog opgepakt worden:
 - Opleveren back end op een server voor echt gebruik (Docker aanpak, bv. op aimsites.nl via Argo ICT of zelf hosten VPS digital ocean)
 - Inputs van controllers wat beter typeren, zo mogelijk (schijnt nogal veel boilerplate te geven als ik [dit](https://stackoverflow.com/questions/73021318/how-to-strongly-type-the-oak-context-state-object-in-deno) lees.
 - Inputs evt. ook valideren met bv. [Joi](https://joi.dev/api/?v=17.6.1) library om [noSql injection](https://blog.sqreen.com/prevent-nosql-injections-mongodb-node-js/) te voorkomen.
+- Alle Deno imports, zoals bv. de Oak applicatie server hebben concreet versienummer gekregen, maar wellicht heeft het nog  een [import map](https://deno.land/manual@v1.27.0/linking_to_external_code/import_maps) maken en overal deze refereren.
 
 ## Bronnen
 
