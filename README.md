@@ -6,6 +6,8 @@ Een Chrome browser extensie voor docenten van HAN ICT, om in het aanwezigheidsre
 
 Hieronder wat plaatjes en een demo video van de UI. Voor geinteresseerden komt de extensie wellicht tzt in de Chrome Web store, maar voor voorlopig kun je deze handmatig zelf installeren via uploaden van de (JavaScript) code uit deze repo via de Chrome extensie toolbar (in Developer mode; zie stappenplan over installatie in sectie hieronder).
 
+NB Naast de Chrome extensie code is er ook een Deno RESTful backend en erbij static HTML/JS front-end toegevoegd in de `backend` folder met opzet van functionaliteit voor soort 'Digitaal wisbordje'. Deze heeft zijn eigen [README](/backend).
+
 Daaronder een roadmap en hoe je zelf wensen kunt doorgeven. Tot slot typische IT zaken als:
 
 - het ontwerp en requirements via user stories voor toekomstige uitbreiding en stabilisatie,
