@@ -56,26 +56,35 @@ Als je een gewenste feature hebt kun je een issue aanmaken in deze repo. De code
 
 Onderstaand de user stories en acceptatie criteria in [BDD](https://cucumber.io/docs/gherkin/reference/) stijl.
 
-### Feature: Browser based interface in iSAS als Chrome extensie
+```gherkin
 
-Als docent wil ik de al in iSAS ingevulde aanwezigheidslijst kunnen gebruiken in de browser in plaats van aparte applicatie te gebruiken zodat ik niet apart iets hoef op te starten (maar wel een Chrome extensie moet installeren, want 'voor niets gaat de zon op' ;)).
+Feature: Random student kiezen
 
-### Feature: Als docent wil ik in een klas random een aanwezige student kunnen laten kiezen uit de groep om een vraag te beantwoorden, zodat niet telkens dezelfde studenten aan de beurt zijn en de objectiviteit gewaarborgd blijft
+Als docent wil ik in een klas random een aanwezige student kunnen laten kiezen uit de groep om een vraag te beantwoorden, zodat niet telkens dezelfde studenten aan de beurt zijn en de objectiviteit gewaarborgd blijft
+
+Feature: Browser based interface in iSAS als Chrome extensie
+
+Als docent wil ik de al in iSAS ingevulde aanwezigheidslijst kunnen gebruiken in de browser om een random student te kiezen  in plaats van een aparte applicatie te gebruiken zodat ik niet apart iets hoef op te starten en aan/afwezigheid hoef in te vullen
+
 
 Scenario: Student kiezen
+
 Gegeven een lijst van aanwezige studenten van een klas
-Wanneer ik het systeem om een student vraag
+Als ik het systeem om een student vraag
 Dan geeft deze random een student uit de lijst die nog niet eerder aan de beurt is geweest
 
 Scenario: Nog ongemarkeerde student alsnog als afwezig markeren
+
 Gegeven dat het systeem een studentnaam geeft die per ongeluk toch afwezig is
-Wanneer ik aan geef dat deze toch afwezig is
+Als ik aan geef dat deze toch afwezig is
 Dan markeert het systeem deze student alsnog als afwezig
 
 Scenario: Random lijst resetten
+
 Gegeven dat ik alle aanwezige studenten al een keer heb aangewezen
-Wanneer ik weer om een nieuwe student vraag
+Als ik weer om een nieuwe student vraag
 Dan gaat het systeem opnieuw door alle aanwezigen met een nieuwe random volgorde
+```
 
 ## Pseudo code/algoritmiek (ontwerp)
 
