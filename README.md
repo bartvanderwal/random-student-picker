@@ -21,7 +21,7 @@ https://user-images.githubusercontent.com/3029472/196881124-ab0b21ac-1a4b-4637-8
 
 <img src="plaatjes/html-structuur-classes.png" alt="Structuur van HTML in iSAS" align="right">
 
-*Figuur 3*: (Design) De aanwezigheidslijst in iSAS en HTML structuur en classes voor 'inprikken' in de DOM
+*Figuur 2*: (Design) De aanwezigheidslijst in iSAS en HTML structuur en classes voor 'inprikken' in de DOM
 
 ## Hoe te installeren
 
@@ -29,11 +29,11 @@ Te zijnertijd kun je deze plugin wellicht direct vinden in de Chrome Web store. 
 
 <img src="plaatjes/chrome-extension-install.png" alt="" align="right" width="300">
 
-*Figuur 5*: Markeren van 'gepickte' student
+*Figuur 3*: Markeren van 'gepickte' student
 
 <img src="plaatjes/chrome-extension-select-manifest-folder.png" alt="Structuur van HTML in iSAS" align="right" width="300">
 
-*Figuur 6*: (Design) Markeren van 'gepickte' student
+*Figuur 4*: (Design) Markeren van 'gepickte' student
 
 0. Download code uit github via downloaden .zip uit GitHub en uitpakken of gebruik de git cli: `git clone`
 1. Open de Browser Extensions via ... menu in Chrome of surf naar `chrome://extensions`
@@ -47,8 +47,8 @@ Te zijnertijd kun je deze plugin wellicht direct vinden in de Chrome Web store. 
 
 Als je een gewenste feature hebt kun je een issue aanmaken in deze repo. De code is open source en Google heeft [prima tutorials](https://developer.chrome.com/docs/extensions/mv3/getstarted/) over Chrome extensies ontwikkelen, dus je kunt er ook zelf mee aan de slag, en een pull request indienen. Hieronder kort wat eigen ideeen.
 
-- [ ] Indienen in Chrome Web Store (work in progress)
-- [ ] Voorkomen direct heraanwijzen zelfde student (zoals in Processing variant)
+- [X] Indienen in Chrome Web Store
+- [ ] Voorkomen direct heraanwijzen zelfde student (zoals in Processing variant al gebeurt; zie ontwerp onder)
 - [ ] Aangeven als iedereen aan beurt is geweest, en resetten random list
 - [ ] Wisbord achtige functionaliteit via plugin scherm en centrale server voor nog beter 'formatief handelen' i.p.v. huidige 'cold calling'
 
