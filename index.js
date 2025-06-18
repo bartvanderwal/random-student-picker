@@ -7,6 +7,12 @@ const urlParams = new URLSearchParams(queryString);
 let isDebugging = urlParams.get('debug')==='true'
 isDebugging = isDebugging || currentUrl.startsWith('http://localhost') || currentUrl.startsWith('http://127.0.0.1')
 
+// Alleen doorgaan als juiste pagina
+if (urlParams.get('F') !== 'RegistratieKlas') {
+    log("Niet op RegistratieKlas pagina. Script stopt.");
+    return;
+}
+
 function log(bericht) {
     if (isDebugging) {
         console.log(bericht)
