@@ -1,6 +1,6 @@
 import { Router } from "https://deno.land/x/oak@v11.1.0/mod.ts";
-import { authorized } from "../middlewares/Authorized.ts";
-import { admin } from "../middlewares/Admin.ts"
+import { authorized } from "../middlewares/authorized.ts";
+import { admin } from "../middlewares/admin.ts"
 
 import { signup, signin } from "../controllers/users.ts";
 import { postTask, getTasks, getTask, updateTask, deleteTask} from "../controllers/tasks.ts";

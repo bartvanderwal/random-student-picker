@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <title>Drag-and-Drop voorbeeld</title>
+  </head>
+  <body>
+    <style>
+        .lijst {
+            color: black;
+            display: flex;
+            flex-direction: column;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+        .group {
+            background-color: #6DB65B;
+            border: 2px solid #DFA612;
+            margin: 10px 20px;
+            flex-basis: 100%;
+            flex-grow: 1;
+            padding: 10px;
+        }
+        .student {
+            background-color: darkblue
+            cornflowerblue;
+            font-weight: normal;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            padding: 10px;
+        }
+        h2 {
+            font-size: 10px;;
+        }
+    </style>
+    <div class="lijst">
+        <div class="group" ondragover="onDragOver(event);" ondrop="onDrop(event);">
+            <h2>Groep 1</h2>
+            <div class="student" id="student1" draggable="true" ondragstart="onDragStart(event);">
+                Student 1
+            </div>
+            <div class="student" id="student2" draggable="true" ondragstart="onDragStart(event);">
+                Student 2
+            </div>
+        </div>
+        <div class="group" ondragover="onDragOver(event);" ondrop="onDrop(event);">
+            <h2>Groep 2</h2>
+        </div>
+        <div class="group" ondragover="onDragOver(event);" ondrop="onDrop(event);">
+            <h2>Groep 3</h2>
+        </div>
+    </div>
+    <script>
+        function onDragStart(event) {
+            event.dataTransfer.setData('text/plain', event.target.id);
+            event.currentTarget.style.backgroundColor = 'yellow';
+        }
+
+        function onDragOver(event) {
+            event.preventDefault();
+        }
+
+        function onDrop(event) {
+            const id = event.dataTransfer.getData('text');
+            const draggableElement = document.getElementById(id);
+            const dropzone = event.target;
+            dropzone.appendChild(draggableElement);
+            event.dataTransfer.clearData();
+        }
+    </script>
+  </body>
+</html>

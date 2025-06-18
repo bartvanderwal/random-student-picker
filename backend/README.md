@@ -40,14 +40,14 @@ Start de mongodb database server en dan de deno backend.
 
 ```bash
 docker run --name mongodb -d -p 27017:27017 mongo
-deno run --allow-net --allow-read='antwoordenDB' --allow-write='antwoordenDB' --allow-env=ADMINPASSWORD server.ts
+deno run --allow-net --allow-read='antwoordenDB' --allow-write='antwoordenDB' --allow-env=ADMIN_PASSWORD,DATABASE_URL server.ts
 ```
 
 De `--allow-net` is nodig voor toegang tot netwerk om als HTTP server te kunnen dienen.
 De `--allow-read` en `--allow-write` permissie zijn nodig voor het lezen respectievelijk schrijven van de 'in memory' SQLite database op de hard disk.
 De `--allow-env` is nodig voor het uitlezen van de omgevingsvariabelen uit ww voor 'secure' instellen 'geheim' wachtwoord voor endpoint wissen antwoorden e.d..
 
-Voor enablen van debuggen kun je de `--inspect` optie voor de `deno run` toevoegen. Bijvoorbeeld in [VS Code kun je dan breakpoints zetten](https://medium.com/deno-the-complete-reference/run-and-debug-deno-applications-in-vscode-b6e3bff217f). En voor automatisch herstarten bij wijzigingen kun je de` --watch` flag toevoegen voor [watcher mode](https://medium.com/deno-the-complete-reference/denos-built-in-watcher-1d91cb976349).
+Voor enablen van debuggen kun je de `--inspect` optie voor de `deno run` toevoegen. Bijvoorbeeld in [VS Code kun je dan breakpoints zetten](https://medium.com/deno-the-complete-reference/run-and-debug-deno-applications-in-vscode-b6e3bff217f). En voor automatisch herstarten bij wijzigingen kun je de `--watch` flag toevoegen voor [watcher mode](https://medium.com/deno-the-complete-reference/denos-built-in-watcher-1d91cb976349).
 
 De front-end staat om de `public` folder. Bij ontwikkelen kun je typescript compiler runnen, in watch mode
 
@@ -56,16 +56,41 @@ cd public
 tsc -w
 ```
 
-Voor verwijderen van de in memory antwoorden via DELETE endpoint op `/api/antwoorden/` moet je de omgevingsvariabele `ADMINPASSWORD` op de server op een gewenste geheime waarde, die je dan in body van DELETE request moet zetten als extra beveiliging tegen hacken.
+Voor verwijderen van de in memory antwoorden via DELETE endpoint op `/api/antwoorden/` moet je de omgevingsvariabele `ADMIN_PASSWORD` op de server op een gewenste geheime waarde zetten. Ditzelfde paswoord moet je dan ook in body van DELETE request zetten of andere 'admin' end points als beveiliging tegen ongewenste toegang door anderen/hackers.
 
 ```bash
-export $ADMINPASSWORD=admin
+export $ADMIN_PASSWORD=admin
 ```
 
 ## Contribute
 
-We raden Visual Studio code aan als editor, met de [Deno extensie](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno) (zie docs](https://deno.land/manual@v1.25.4/vscode_deno)).
+We raden Visual Studio code aan als editor, met de [Deno extensie](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno) (zie [docs](https://deno.land/manual@v1.25.4/vscode_deno)).
 Dit project bevat ook een vs code `settings.json` en `lauch.json` voor het linten respectievelijk runnen/debuggen van dit project. Deze bestanden staan in folder `.vscode/`) en deze is dus bewust NIET in de `.gitignore` gezet ;).
+
+Deno is al in 1.0 versie, en performt wat beter dan Node, maar kan nog wel wat instabiel zijn. Wel werkt deze applicatie zonder de `--unstable` tag van deno. Gebruik bij aanpassen van code en toevoegen van `import`'s altijd expliciet genummerde versies, bv. gebruik oak v11.1.0.
+
+```typescript
+import { Router } from "https://deno.land/x/oak@v11.1.0/mod.ts";
+```
+
+in plaats van:
+
+```typescript
+import { Application } from "https://deno.land/x/oak/mod.ts";
+```
+
+Dit voorkomt dat functionaliteit in deze applicatie breekt door wijzigingen in Deno zelf. En is dan ook conform onderstaand advies
+>It is strongly recommended that you link to tagged releases to avoid unintended updates and breaking changes.
+
+- Bron: <https://deno.land/std@0.161.0>
+
+Bij latere updates naar bijvoorbeeld een hogere Oak versie is het wel goed om alle modules op dezelfde versie van Oak te houden. Dat vereist echter wel een hertest. Bij twijfel, zeker bij kleinere aanpassingen, gebruik de standaard. Een oplossong om dit proces te stroomlijnen zou het invoeren van van [import maps](https://deno.land/manual@v1.27.0/linking_to_external_code/import_maps) maken. En deze bij alle imports te refereren in plaats van direct de URL's.
+
+Dit voert terug op fundamental theorem of computer science:
+
+>"We can solve any problem by introducing an extra level of indirection."
+
+En zoals [Wikipedia pagina hierover](https://en.wikipedia.org/wiki/Fundamental_theorem_of_software_engineering) eraan toevoegt: "…except for the problem of too many levels of indirection". ;)
 
 ## TODO
 
@@ -74,7 +99,6 @@ De volgende zaken moeten of kunnen nog opgepakt worden:
 - Opleveren back end op een server voor echt gebruik (Docker aanpak, bv. op aimsites.nl via Argo ICT of zelf hosten VPS digital ocean)
 - Inputs van controllers wat beter typeren, zo mogelijk (schijnt nogal veel boilerplate te geven als ik [dit](https://stackoverflow.com/questions/73021318/how-to-strongly-type-the-oak-context-state-object-in-deno) lees.
 - Inputs evt. ook valideren met bv. [Joi](https://joi.dev/api/?v=17.6.1) library om [noSql injection](https://blog.sqreen.com/prevent-nosql-injections-mongodb-node-js/) te voorkomen.
-- Alle Deno imports, zoals bv. de Oak applicatie server hebben concreet versienummer gekregen, maar wellicht heeft het nog  een [import map](https://deno.land/manual@v1.27.0/linking_to_external_code/import_maps) maken en overal deze refereren.
 
 ## Bronnen
 

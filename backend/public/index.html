@@ -22,8 +22,8 @@
     <main>
         <article>
             <form action="api/vragen" method="post" id="vraag-form">
-                <label for="vraagTekst">Vraag</label>
-                <input type="text" id="vraagTekst" name="vraagTekst" required pattern=".+\?" title="De vraag moet eindigen met een vraagteken!">
+                <label for="nieuweVraagTekst">Vraag</label>
+                <input type="text" id="nieuweVraagTekst" name="vraagTekst" required pattern=".+\?" title="De vraag moet eindigen met een vraagteken!">
                 <input type="submit" value="Voeg toe">
             </form>
             <br>
@@ -38,18 +38,21 @@
         </article>
         <article>
             <h2 id="vragenKop">Vragen</h2>
+            <p id="vragenStatus" class="status">Hier komen de vragen die de pagina gaat ophalen na het laden.</p>
             <ul id="vragen">
             </ul>
         </article>
         <article>
             <h2 id="antwoordenKop">Antwoorden</h2>
-            <p id="antwoordenLoading" class="loading">Selecteer eerst een vraag om daarvan hier de antwoorden te tonen...</p>
+            <p id="antwoordenStatus" class="status">Klik op een vraag om hier de erop gegeven antwoorden te tonen...</p>
             <ul id="antwoorden">
             </ul>
             <form action="api/antwoorden" method="post" id="antwoord-form">
                 <label for="antwoordTekst">Antwoord</label>
                 <input type="text" id="antwoordTekst" name="antwoordTekst" required>
                 <input type="hidden" id="gebruikerId" name="gebruikerId" value="1">
+                <input type="hidden" name="vraagId" id="huidigeVraagId">
+                <input type="hidden" id="huidigeVraagTekst" name="vraagTekst" value="1">
                 <input type="submit" value="Voeg toe">
             </form>
         </article>

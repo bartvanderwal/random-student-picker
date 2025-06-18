@@ -8,12 +8,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const requiredMessage = "Dit veld is verplicht!";
-function postFormDataAsJson({ url, formData }) {
+function postFormDataAsJson({ url, formData }, method = 'POST') {
     return __awaiter(this, void 0, void 0, function* () {
         const plainFormData = Object.fromEntries(formData.entries());
         const formDataJsonString = JSON.stringify(plainFormData);
         const fetchOptions = {
-            method: "POST",
+            method: method,
             headers: {
                 "Content-Type": "application/json",
                 Accept: "application/json",
@@ -34,53 +34,49 @@ function handleFormSubmit(event) {
         event.preventDefault();
         const form = event.currentTarget;
         const url = form.action;
-        try {
-            const formData = new FormData(form);
-            const responseData = yield postFormDataAsJson({ url, formData });
-            console.log({ responseData });
-            return responseData;
+        const formData = new FormData(form);
+        const responseData = yield postFormDataAsJson({ url, formData });
+        console.log({ responseData });
+        const response = responseData;
+        if (response == null) {
+            throw new Error(`Response is niet van verwachte type.`);
         }
-        catch (error) {
-            console.error(error);
-        }
+        return responseData;
     });
 }
 const vraagForm = document.getElementById("vraag-form");
 vraagForm.addEventListener("submit", (event) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield handleFormSubmit(event);
-    voegVraagToe({ id: result.id, vraagTekst: result.vraagTekst });
+    voegVraagToe(result);
     let vraag = document.getElementById('vraagTekst');
     vraag.value = '';
+}));
+const antwoordForm = document.getElementById("antwoord-form");
+antwoordForm.addEventListener("submit", (event) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield handleFormSubmit(event);
+    voegAntwoordToe(result);
 }));
 let huidigeVraagId = '';
 let vragen = [];
 let antwoorden = [];
-class ClearableHTMLElement extends HTMLElement {
-    clear(el) {
-        while (this.lastChild) {
-            this.removeChild(this.lastChild);
-        }
-    }
-}
-ClearableHTMLElement.prototype.clearChildren = (el) => {
-    const element = el;
+function clearChildren(element) {
     while (element.lastChild) {
         element.removeChild(element.lastChild);
     }
-};
+}
 function haalAntwoordenOp(vraagId) {
     const antwoordenKop = document.getElementById('antwoordenKop');
-    const antwoordenLijst = document.getElementById('antwoorden');
-    document.getElementById('antwoordenLoading').innerText = 'Ophalen...';
+    const antwoordenStatus = document.getElementById('antwoordenStatus');
+    antwoordenStatus.innerText = 'Ophalen...';
     fetch(`/api/antwoorden/${vraagId}`)
         .then(response => response.json())
         .then(data => { console.log(`Antwoorden vraag '${vraagId}': `, data); return data; })
         .then(data => {
         antwoorden = data.antwoorden;
-        antwoordenLijst.clearChildren(antwoordenKop);
-        document.getElementById('antwoordenLoading').setAttribute('style', 'display: none');
+        clearChildren(antwoordenLijst);
+        antwoordenStatus.innerText = '';
         if (!antwoorden || antwoorden.length < 1) {
-            antwoordenKop.insertAdjacentHTML("afterend", "<p>Nog geen vragen.</p>");
+            antwoordenStatus.innerText = "Er zijn nog geen antwoorden voor deze vraag";
         }
         else {
             antwoorden.forEach(a => {
@@ -89,46 +85,52 @@ function haalAntwoordenOp(vraagId) {
         }
     });
 }
-const vragenLijst = document.getElementById('vragen');
+const vragenLijst = document.getElementById('vragen'), x;
+const antwoordenLijst = document.getElementById('antwoorden');
 function voegVraagToe(v) {
     const li = document.createElement('li');
     li.textContent = v.vraagTekst;
     li.setAttribute('id', v.id);
     vragenLijst.appendChild(li);
     document.getElementById(v.id).insertAdjacentHTML("afterbegin", '<i class="fa fa-trash fa-small" aria-hidden="true">&nbsp;');
-    maakVraagSelecteerbaar(li, v.id);
+    maakVraagSelecteerbaar(li, v);
 }
 function voegAntwoordToe(a) {
     const li = document.createElement('li');
     li.textContent = a.antwoordTekst;
     li.setAttribute('id', a.id);
-    vragenLijst.appendChild(li);
+    antwoordenLijst.appendChild(li);
     document.getElementById(a.id).insertAdjacentHTML("afterbegin", '<i class="fa fa-check fa-small" aria-hidden="true"></i>&nbsp;' +
         '<i class="fa-exclamation-triangle fa-small" aria-hidden="true"></i>&nbsp;' +
         '<i class="fa fa-face-thinking fa-small aria-hidden="true"></i>&nbsp;');
 }
-function maakVraagSelecteerbaar(li, vraagId) {
+function maakVraagSelecteerbaar(li, vraag) {
     li.addEventListener('click', event => {
-        const elActive = event.target;
-        selecteerAlsHuidigeVraag(elActive, vraagId);
+        selecteerAlsHuidigeVraag(vraag);
     });
 }
-function selecteerAlsHuidigeVraag(el, vraagId) {
-    el.setAttribute('class', 'active');
-    let oudeVraagLi = document.getElementById(huidigeVraagId);
-    oudeVraagLi.classList.remove('active');
+function selecteerAlsHuidigeVraag(vraag) {
+    const vraagId = vraag.id;
+    document.getElementById(vraagId).setAttribute('class', 'active');
+    if (vraag.id !== huidigeVraagId) {
+        let oudeVraagLi = document.getElementById(huidigeVraagId);
+        oudeVraagLi.classList.remove('active');
+    }
     huidigeVraagId = vraagId;
+    document.getElementById('huidigeVraagId').value = vraagId;
+    document.getElementById('huidigeVraagTekst').value = vraag.vraagTekst;
     haalAntwoordenOp(vraagId);
 }
 function haalVragenOp() {
     const vragenKop = document.getElementById('vragenKop');
-    vragenKop.insertAdjacentHTML("afterend", "<p id='vragenLoading'>Ophalen...</p>");
+    const vragenStatus = document.getElementById('vragenStatus');
+    vragenStatus.innerText = 'Ophalen...';
     fetch('/api/vragen')
         .then(response => response.json())
         .then(data => { console.log(data); return data; })
         .then(data => {
         vragen = data.vragen;
-        document.getElementById('vragenLoading').setAttribute('style', 'display: none');
+        vragenStatus.innerText = '';
         if (vragen && vragen.length >= 1) {
             huidigeVraagId = vragen[0].id;
         }

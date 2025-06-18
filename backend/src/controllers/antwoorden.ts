@@ -11,7 +11,7 @@ import { Antwoord } from "../../shared/models/antwoord.d.ts";
 // Geef SQLite antwoorden database terug, en maak evt. aan als nog nodig
 // Bron: https://deno.land/x/sqlite@v3.5.0
 
-let last_insert_rowid: number = -1;
+let lastInsertRowid = -1;
 
 function queryAntwoordenDB(query: string, values?: Array<string>): Array<Row> {
     const antwoordenDb = new DB("antwoordenDB");
@@ -33,7 +33,7 @@ function queryAntwoordenDB(query: string, values?: Array<string>): Array<Row> {
     } else {
         result = new Array<Row>();
     }
-    last_insert_rowid = antwoordenDb.lastInsertRowId
+    lastInsertRowid = antwoordenDb.lastInsertRowId
     antwoordenDb.close();
     return result;
 }
@@ -58,8 +58,8 @@ export const postAntwoord = async({request, response}:{request: Request; respons
 
     // Bekijk of het een insert of update was, via hack, bij conflict (e.g. update) is last_insert_rowid namelijk 0
     // Bron: https://sqlite.org/forum/info/1ead75e2c45de9a580c998cbe6d4d9216437fcfe237479e940107ed3b011affb 
-    console.log('postantwoord last_insert_rowid:' + last_insert_rowid)
-    if (last_insert_rowid===0) {
+    // console.log('postantwoord last_insert_rowid:' + last_insert_rowid)
+    if (lastInsertRowid===0) {
         response.body = {message: `Antwoord gewijzigd`, id, antwoordTekst: antwoord.antwoordTekst, antwoord}
     } else {
         response.body = {message: `Antwoord toegevoegd`, id, antwoordTekst: antwoord.antwoordTekst, antwoord}
@@ -90,7 +90,7 @@ export const deleteAntwoorden = async({request, response}:{request: Request; res
     const { wachtwoord } = await body.value;
 
     // Bron: Uitlezen omgevingsvariabele als extra security: https://examples.deno.land/environment-variables
-    const adminPassword = Deno.env.get("ADMINPASSWORD")
+    const adminPassword = Deno.env.get("ADMIN_PASSWORD")
     if (!wachtwoord || wachtwoord!==adminPassword) {
         response.body = { message: `Wachtwoord '${wachtwoord}' in request niet correct: antwoorden NIET gewist.` };
         console.log("adminPassword: ", adminPassword);

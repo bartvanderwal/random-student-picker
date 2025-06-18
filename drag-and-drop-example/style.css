@@ -1,0 +1,26 @@
+.lijst {
+    border: 2px solid #DFA612;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    font-weight: bold;
+    width: 300px;
+}
+
+.group, .student {
+    background-color: #6DB65B;
+    width: 200px;
+}
+.group {
+    padding: 10px;
+    flex-basis: 100%;
+    flex-grow: 1;
+}
+
+.student {
+    font-weight: normal;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 10px;
+}

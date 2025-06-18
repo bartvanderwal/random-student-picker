@@ -5,7 +5,7 @@ export const admin = async (ctx: Context, next: any) => {
     try {
         // Uitlezen omgevingsvariabele als extra security
         // Bron: https://examples.deno.land/environment-variables
-        const adminPassword = Deno.env.get("ADMINPASSWORD")
+        const adminPassword = Deno.env.get("ADMIN_PASSWORD")
         const body = ctx.request.body();
         const { wachtwoord } = await body.value;
         
